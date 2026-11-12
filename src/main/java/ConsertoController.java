@@ -33,15 +33,11 @@ public class ConsertoController {
                 .buildAndExpand(conserto.getId()).toUri();
         return ResponseEntity.created(uri).body(new DadosDetalhamentoConserto(conserto));
     }
-
-    // Listagem completa paginada, conforme a etapa anterior.
     @GetMapping
     public ResponseEntity<Page<DadosDetalhamentoConserto>> listar(Pageable paginacao) {
         var pagina = repository.findAll(paginacao).map(DadosDetalhamentoConserto::new);
         return ResponseEntity.ok(pagina);
     }
-
-    // Listagem resumida da atividade: inclui o ID e somente consertos ativos.
     @GetMapping("/algunsdados")
     public ResponseEntity<Page<DadosListagemConserto>> listarAlgunsDados(Pageable paginacao) {
         var pagina = repository.findAllByAtivoTrue(paginacao).map(DadosListagemConserto::new);

@@ -7,18 +7,19 @@ import org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypes;
 
 @SpringBootConfiguration
 @EnableAutoConfiguration(excludeName = "org.springframework.boot.data.jpa.autoconfigure.DataJpaRepositoriesAutoConfiguration")
-@Import({ConsertoController.class, ConsertoRepository.class})
+@Import({
+    ConsertoController.class, ConsertoRepository.class,
+    UsuarioRepository.class, AutenticacaoService.class, AutenticacaoController.class,
+    PW3TokenService.class, SecurityFilter.class, SecurityConfigurations.class,
+    TratadorDeErros.class
+})
 public class ApiConsertosApplication {
-
-
-    // Benjamin Silva   - SC3052125
-    // Guilherme Araujo - SC3051862
     public static void main(String[] args) {
         SpringApplication.run(ApiConsertosApplication.class, args);
     }
 
     @Bean
     PersistenceManagedTypes persistenceManagedTypes() {
-        return PersistenceManagedTypes.of(Conserto.class.getName());
+        return PersistenceManagedTypes.of(Conserto.class.getName(), Usuario.class.getName());
     }
 }

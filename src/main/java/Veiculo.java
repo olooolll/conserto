@@ -8,7 +8,6 @@ public class Veiculo {
     private String cor;
 
     protected Veiculo() {
-        // Construtor exigido pelo JPA.
     }
 
     public Veiculo(String marca, String modelo, String ano, String cor) {

@@ -6,7 +6,6 @@ public class Mecanico {
     private Integer anosExperiencia;
 
     protected Mecanico() {
-        // Construtor exigido pelo JPA.
     }
 
     public Mecanico(String nome, Integer anosExperiencia) {

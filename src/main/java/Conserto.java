@@ -41,7 +41,6 @@ public class Conserto {
     private boolean ativo = true;
 
     protected Conserto() {
-        // Construtor exigido pelo JPA.
     }
 
     public Conserto(DadosCadastroConserto dados) {
